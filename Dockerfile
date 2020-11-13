@@ -1,16 +1,17 @@
 FROM ubuntu:20.04
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
         asciidoctor \
         curl \
         plantuml \
         yarnpkg \
-    && rm -rf /var/lib/apt/lists/*
+        ; \
+    rm -rf /var/lib/apt/lists/*; \
+    ln -s "$(which yarnpkg)" /usr/local/bin/yarn
 
-RUN ln -s "$(which yarnpkg)" /usr/local/bin/yarn
-
-RUN gem install \
+RUN gem install --no-document \
         asciidoctor-diagram \
         asciidoctor-html5s
 
