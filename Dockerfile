@@ -5,6 +5,7 @@ RUN set -eux; \
     apt-get install -y \
         asciidoctor \
         curl \
+        make \
         plantuml \
         yarnpkg \
         ; \
