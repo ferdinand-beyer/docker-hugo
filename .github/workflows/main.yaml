@@ -19,9 +19,9 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          build-args:
-            - HUGO_VERSION=${{ env.HUGO_VERSION }}
+          build-args: |
+            HUGO_VERSION=${{ env.HUGO_VERSION }}
           push: true
-          tags:
-            - ghcr.io/ferdinand-beyer/hugo:latest
-            - ghcr.io/ferdinand-beyer/hugo:${{ env.HUGO_VERSION }}
+          tags: |
+            ghcr.io/ferdinand-beyer/hugo:latest
+            ghcr.io/ferdinand-beyer/hugo:${{ env.HUGO_VERSION }}
