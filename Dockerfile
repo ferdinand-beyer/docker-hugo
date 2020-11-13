@@ -1,24 +1,33 @@
 FROM ubuntu:20.04
 
-LABEL org.opencontainers.image.source https://github.com/ferdinand-beyer/docker-hugo
-
-RUN apt-get update && apt-get install -y \
-    asciidoctor \
-    curl \
-    plantuml \
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        asciidoctor \
+        curl \
+        plantuml \
+        yarnpkg \
     && rm -rf /var/lib/apt/lists/*
 
+RUN ln -s "$(which yarnpkg)" /usr/local/bin/yarn
+
 RUN gem install \
-    asciidoctor-diagram \
-    asciidoctor-html5s
+        asciidoctor-diagram \
+        asciidoctor-html5s
 
 ARG HUGO_VERSION=0.78.1
+WORKDIR /tmp/install-hugo
+COPY hugo_${HUGO_VERSION}_checksums.txt ./checksums.txt
+RUN set -eux; \
+    HUGO_DEB="hugo_extended_${HUGO_VERSION}_Linux-64bit.deb"; \
+    curl -fsLOS "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DEB}"; \
+    grep "${HUGO_DEB}" checksums.txt | sha256sum -c -; \
+    dpkg -i "${HUGO_DEB}"; \
+    rm -rf "$(pwd)";
 
-COPY hugo_${HUGO_VERSION}_checksums.txt /tmp/hugo/
-RUN HUGO_DEB=hugo_${HUGO_VERSION}_Linux-64bit.deb \
-    && cd /tmp/hugo \
-    && curl -fLO https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_DEB} \
-    && grep ${HUGO_DEB} hugo_${HUGO_VERSION}_checksums.txt | sha256sum -c \
-    && dpkg -i ${HUGO_DEB} \
-    && rm -rf /tmp/hugo
+WORKDIR /src
+EXPOSE 1313
 
+LABEL org.opencontainers.image.source=https://github.com/ferdinand-beyer/docker-hugo
+LABEL org.opencontainers.image.version=${HUGO_VERSION}
+
+CMD ["hugo"]
