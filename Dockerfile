@@ -5,12 +5,9 @@ RUN set -eux; \
     apt-get install -y \
         asciidoctor \
         curl \
-        make \
         plantuml \
-        yarnpkg \
         ; \
-    rm -rf /var/lib/apt/lists/*; \
-    ln -s "$(which yarnpkg)" /usr/local/bin/yarn
+    rm -rf /var/lib/apt/lists/*;
 
 RUN gem install --no-document \
         asciidoctor-diagram \
@@ -29,6 +26,8 @@ RUN set -eux; \
 WORKDIR /src
 EXPOSE 1313
 
+LABEL org.opencontainers.image.title="Hugo"
+LABEL org.opencontainers.image.description="Hugo and support packages (AsciiDoctor, PlantUML)"
 LABEL org.opencontainers.image.source=https://github.com/ferdinand-beyer/docker-hugo
 LABEL org.opencontainers.image.version=${HUGO_VERSION}
 

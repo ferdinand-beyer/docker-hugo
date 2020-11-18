@@ -22,6 +22,8 @@ jobs:
           build-args: |
             HUGO_VERSION=${{ env.HUGO_VERSION }}
           push: true
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
           tags: |
             ghcr.io/ferdinand-beyer/hugo:latest
             ghcr.io/ferdinand-beyer/hugo:${{ env.HUGO_VERSION }}
