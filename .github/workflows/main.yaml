@@ -23,11 +23,11 @@ jobs:
             HUGO_VERSION=${{ env.HUGO_VERSION }}
           push: true
           labels: |
-            org.opencontainers.image.title="Hugo"
-            org.opencontainers.image.description="Hugo and support packages (AsciiDoctor, PlantUML)"
-            org.opencontainers.image.source="https://github.com/${{ github.repository }}"
-            org.opencontainers.image.revision="${{ github.sha }}"
-            org.opencontainers.image.version="${{ env.HUGO_VERSION }}"
+            org.opencontainers.image.title=Hugo
+            org.opencontainers.image.description=Hugo and support packages (Asciidoctor, PlantUML)
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ env.HUGO_VERSION }}
           tags: |
             ghcr.io/ferdinand-beyer/hugo:latest
             ghcr.io/ferdinand-beyer/hugo:${{ env.HUGO_VERSION }}
