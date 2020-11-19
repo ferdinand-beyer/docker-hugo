@@ -25,10 +25,4 @@ RUN set -eux; \
 
 WORKDIR /src
 EXPOSE 1313
-
-LABEL org.opencontainers.image.title="Hugo"
-LABEL org.opencontainers.image.description="Hugo and support packages (AsciiDoctor, PlantUML)"
-LABEL org.opencontainers.image.source=https://github.com/ferdinand-beyer/docker-hugo
-LABEL org.opencontainers.image.version=${HUGO_VERSION}
-
 CMD ["hugo"]
