@@ -11,7 +11,8 @@ RUN set -eux; \
 
 RUN gem install --no-document \
         asciidoctor-diagram \
-        asciidoctor-html5s
+        asciidoctor-html5s \
+        rouge
 
 ARG HUGO_VERSION=0.78.1
 WORKDIR /tmp/install-hugo
