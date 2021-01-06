@@ -6,7 +6,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: '0.78.1'
+      HUGO_VERSION: '0.80.0'
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1

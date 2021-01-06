@@ -14,7 +14,6 @@ RUN gem install --no-document \
         asciidoctor-html5s \
         rouge
 
-ARG HUGO_VERSION=0.78.1
 WORKDIR /tmp/install-hugo
 COPY hugo_${HUGO_VERSION}_checksums.txt ./checksums.txt
 RUN set -eux; \
