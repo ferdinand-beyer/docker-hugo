@@ -2,19 +2,32 @@ name: CI
 
 on: push
 
+env:
+  HUGO_VERSION: '0.92.1'
+  REGISTRY: ghcr.io
+  IMAGE: ferdinand-beyer/hugo
+
 jobs:
   main:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: '0.92.1'
+    permissions:
+        content: read
+        packages: write
+
     steps:
       - uses: actions/checkout@v2
-      - uses: docker/setup-buildx-action@v1
+
       - uses: docker/login-action@v1
         with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+
       - uses: docker/build-push-action@v2
         with:
           context: .
@@ -22,12 +35,5 @@ jobs:
           build-args: |
             HUGO_VERSION=${{ env.HUGO_VERSION }}
           push: true
-          labels: |
-            org.opencontainers.image.title=Hugo
-            org.opencontainers.image.description=Hugo and support packages (Asciidoctor, PlantUML)
-            org.opencontainers.image.source=https://github.com/${{ github.repository }}
-            org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.version=${{ env.HUGO_VERSION }}
-          tags: |
-            ghcr.io/ferdinand-beyer/hugo:latest
-            ghcr.io/ferdinand-beyer/hugo:${{ env.HUGO_VERSION }}
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
