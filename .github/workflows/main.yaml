@@ -27,6 +27,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+          tags: |
+            type=semver,pattern={{version}},value=v${{ env.HUGO_VERSION }}
 
       - uses: docker/build-push-action@v2
         with:
