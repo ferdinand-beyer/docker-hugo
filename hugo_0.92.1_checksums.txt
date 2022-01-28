@@ -1,1 +1,23 @@
-<html><body>You are being <a href="https://objects.githubusercontent.com/github-production-release-asset-2e65be/11180687/e2723b65-f8d7-4eb3-b83f-69dba58898a7?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20220128%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20220128T071904Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=3fb4e71d0919562ef4a1250994fe3f48cfb41a575805d88cdd413c8bb2a0fd92&amp;X-Amz-SignedHeaders=host&amp;actor_id=0&amp;key_id=0&amp;repo_id=11180687&amp;response-content-disposition=attachment%3B%20filename%3Dhugo_0.92.1_checksums.txt&amp;response-content-type=application%2Foctet-stream">redirected</a>.</body></html>
+024edf1e3f8d98b8540f92c71e8d513bcf6147c384bd2e028e4b9e5377ec44b4  hugo_0.92.1_Windows-64bit.zip
+04c443677e099a512d8cf2ba20a22d276ce99aad0efbc42548cbbced9ef25c28  hugo_0.92.1_Linux-ARM.tar.gz
+0654ea5f987624b1c7ff51a8e7507d84090aebe727e4d65388296cf2c68fda73  hugo_0.92.1_DragonFlyBSD-64bit.tar.gz
+083bfcb62d62ed68b981cee5ae65929990744f082bce0c9f326a6b00f0f81283  hugo_extended_0.92.1_macOS-64bit.tar.gz
+21e9ca257c7ae60b6e0999f699043c0cbda4d2b452713569d3a00a07a72a8149  hugo_0.92.1_Linux-32bit.tar.gz
+2bba2126c901ee3b9e8c785f71e4681b235bc8cf19f5798a30990c6cb49211d6  hugo_0.92.1_Linux-ARM.deb
+4932282327e1204304ceb2ce3d2e89a1baa333af6091f70fb511d3b7162b2135  hugo_0.92.1_macOS-64bit.tar.gz
+516bbc0fbf35e43db5bd7bf7b2b4c62f466742319abcb0f6c4da14e135e78fbf  hugo_0.92.1_Linux-ARM64.tar.gz
+51c966ac05a267e531603cf94464c2374ef9e1989da921ad3bc87e2b6745b8c8  hugo_0.92.1_Linux-32bit.deb
+56678b4be4cf979fde32ab5347c5b8902d43e8538cb0a55b65d3d0551a366168  hugo_extended_0.92.1_Windows-64bit.zip
+6415b12b8bc8c7d67c27a52debe2aa4b05559935bc1e3afbd24039ed3b0fcf6d  hugo_0.92.1_FreeBSD-64bit.tar.gz
+79430803b4afc79c1ff87362aa293b5de05c6d16cacabb676659c6ddd1140bc6  hugo_extended_0.92.1_macOS-ARM64.tar.gz
+81302171ac4b24bb6cca9ba649512316a716691be9e4c2ab24519d8f698169a1  hugo_0.92.1_Linux-ARM64.deb
+8368f13403b176d79fa7196b557a91e77246f16f3073e0826af90a42933e8d6e  hugo_0.92.1_Linux-64bit.tar.gz
+855261357c04dad0a5190e1a592e3929a362975fa99af640a5f77acdb944d573  hugo_0.92.1_macOS-ARM64.tar.gz
+94f5792f296440f134a2f4f735e1da465ff611e471222460311160678558242d  hugo_0.92.1_Windows-ARM64.zip
+9ae871fcaf1cc6e721906a9d39bf3b6b907b01af6259208899830a757dfc3703  hugo_0.92.1_NetBSD-64bit.tar.gz
+a9440adfd3ecce40089def287dee4e42ffae252ba08c77d1ac575b880a079ce6  hugo_extended_0.92.1_Linux-64bit.deb
+b6cdb9b5643958b4240eb39a52d1ba8f0030af46e808410644444983e1737090  hugo_extended_0.92.1_Linux-64bit.tar.gz
+c03730ae70a73f0f3e49b77c1aeb213565e23151e4a904dcd257847042999e3d  hugo_0.92.1_Linux-64bit.deb
+d756ac7774f67631507bc7d04930c52e68e9e2389b8fe794b642b69c71c5742f  hugo_0.92.1_Windows-32bit.zip
+e62a96b0a3b19b47b344376767a24c066ce6395836c5d87985c89d74cf93e0bc  hugo_0.92.1_Windows-ARM.zip
+fb1dfa4d426fa2a15601e15da24ed6987a3280c92c1e05f066aa073e224daa49  hugo_0.92.1_OpenBSD-64bit.tar.gz
