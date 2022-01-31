@@ -1,4 +1,4 @@
-FROM golang:alpine AS build
+FROM golang:latest AS build
 
 ARG HUGO_VERSION
 ARG HUGO_BUILD_TAGS=extended
@@ -8,18 +8,15 @@ ENV CGO_ENABLED=${CGO}
 ENV GOOS=linux
 ENV GO111MODULE=on
 
-WORKDIR /go/src/github.com/gohugoio/hugo
-
-# gcc/g++ are required to build SASS libraries for extended version
-RUN apk update && \
-    apk add --no-cache gcc g++ musl-dev git && \
-    go get github.com/magefile/mage
+WORKDIR /build
 
 RUN git clone --depth 1 --branch v${HUGO_VERSION} https://github.com/gohugoio/hugo.git .
 
-RUN mage hugo && mage install
+RUN go build -trimpath -o=hugo -ldflags="-s -w" -tags extended
 
 FROM ubuntu:latest
+
+COPY --from=build /build/hugo /usr/local/bin/
 
 RUN set -eux; \
     apt-get update; \
@@ -33,8 +30,6 @@ RUN gem install --no-document \
         asciidoctor-diagram \
         asciidoctor-html5s \
         rouge
-
-COPY --from=build /go/bin/hugo /usr/local/bin/
 
 WORKDIR /src
 EXPOSE 1313
